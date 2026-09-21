@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>霹靂卡霹靂拉拉</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero">
+      <div class="eyebrow"><span class="status-dot"></span> 隨機擲骰工具</div>
+      <div class="milk-dragon" aria-label="奶龍裝飾" role="img">
+        <span class="dragon-horn horn-left"></span>
+        <span class="dragon-horn horn-right"></span>
+        <span class="dragon-eye eye-left"></span>
+        <span class="dragon-eye eye-right"></span>
+        <span class="dragon-nose"></span>
+        <span class="dragon-belly"></span>
+      </div>
+      <h1>霹靂卡<br><em>霹靂拉拉</em></h1>
+      <p class="intro">設定你的骰子，按下按鈕，讓命運替你做決定。</p>
+    </section>
+
+    <section class="workspace" aria-label="擲骰控制區">
+      <div class="control-panel">
+        <div class="panel-heading">
+          <span>01 / 設定骰子</span>
+          <span class="panel-rule"></span>
+        </div>
+
+        <div class="field-group">
+          <label for="dice-type">骰子面數</label>
+          <select id="dice-type">
+            <option value="4">四面骰 · D4</option>
+            <option value="6" selected>六面骰 · D6</option>
+            <option value="8">八面骰 · D8</option>
+            <option value="10">十面骰 · D10</option>
+            <option value="12">十二面骰 · D12</option>
+            <option value="20">二十面骰 · D20</option>
+            <option value="100">百面骰 · D100</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label for="dice-count">骰子數量</label>
+          <div class="stepper">
+            <button class="step-button" id="decrease" type="button" aria-label="減少骰子數量">−</button>
+            <input id="dice-count" type="number" min="1" max="12" value="1" aria-label="骰子數量">
+            <button class="step-button" id="increase" type="button" aria-label="增加骰子數量">＋</button>
+          </div>
+        </div>
+
+        <button class="roll-button" id="roll-button" type="button">
+          <span>擲骰子</span>
+          <span class="button-arrow" aria-hidden="true">↗</span>
+        </button>
+        <p class="shortcut-hint">按下 <kbd>Space</kbd> 也可以擲骰子</p>
+      </div>
+
+      <div class="result-panel">
+        <div class="panel-heading">
+          <span>02 / 結果</span>
+          <span class="panel-rule"></span>
+          <span class="roll-count" id="roll-count">尚未擲骰</span>
+        </div>
+
+        <div class="dice-stage" id="dice-stage" aria-live="polite">
+          <div class="empty-state">
+            <span class="empty-symbol">✦</span>
+            <p>準備好迎接隨機結果了嗎？</p>
+          </div>
+        </div>
+
+        <div class="total-line">
+          <span>總和</span>
+          <strong id="total">—</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="history-section">
+      <div class="panel-heading">
+        <span>03 / 最近紀錄</span>
+        <span class="panel-rule"></span>
+        <button class="clear-button" id="clear-history" type="button">清除紀錄</button>
+      </div>
+      <ol class="history-list" id="history-list">
+        <li class="history-empty">你的擲骰紀錄會顯示在這裡</li>
+      </ol>
+    </section>
+
+    <footer>RANDOMNESS / MADE FOR PLAY</footer>
+  </main>
+</body>
+</html>
